@@ -64,8 +64,6 @@ function get_data($username)
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36');
-    curl_setopt($ch, CURLOPT_PROXY, '127.0.0.1:1086');
-    curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
 //return the transfer as a string
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $json_string = curl_exec($ch);
