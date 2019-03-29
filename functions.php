@@ -24,6 +24,9 @@ function themeConfig($form)
     $email = new Typecho_Widget_Helper_Form_Element_Text('email', NULL, NULL, _t('Email'));
     $form->addInput($email);
 
+    $link = new Typecho_Widget_Helper_Form_Element_Textarea('link', NULL, '暂未填写', _t('友链'), _t('格式: &lt;p&gt;&lt;a&gt;友链&lt;/a&gt;&lt;/p&gt;'));
+    $form->addInput($link);
+
 }
 
 
