@@ -74,7 +74,7 @@ function get_data($username)
     foreach ($data as $each) {
         global $repo_name, $repo_url;
         $repo_name[] = $each['name'];
-        $repo_url[] = $each['url'];
+        $repo_url[] = $each['html_url'];
     }
 
 }
