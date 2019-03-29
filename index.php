@@ -82,7 +82,7 @@ require_once 'functions.php';
                     $repo_url = get_url();
                     $all = array();
                     $all = array_map(function($i1,$i2){
-                        return '<a herf="'.$i1.'">'.$i2.'</a>';
+                        return '<a href="'.$i1.'">'.$i2.'</a>';
                     }, $repo_url,$repo_name);
                     foreach ($all as $item){
                         echo '<li>'.$item.'</li>';
