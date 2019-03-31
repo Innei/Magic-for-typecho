@@ -77,7 +77,10 @@ require_once 'functions.php';
             <section id="openSource">
                 <h2>开源</h2>
                 <ul>
-                    <?php get_data($this->options->g_name);
+                    <?php
+                    if($this->options->g_name == null):
+                    else:
+                    get_data($this->options->g_name);
                     $repo_name = get_repo();
                     $repo_url = get_url();
                     $all = array();
@@ -87,7 +90,7 @@ require_once 'functions.php';
                     foreach ($all as $item){
                         echo '<li>'.$item.'</li>';
                     }
-
+                    endif;
                     ?>
 
                 </ul>
