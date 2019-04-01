@@ -26,6 +26,9 @@ function themeConfig($form)
     $blog_url = new Typecho_Widget_Helper_Form_Element_Text('blog_url', NULL, NULL, _t('博客地址'), _t('填写你的博客地址 (不需要前缀)'));
     $form->addInput($blog_url);
 
+    $halo_url = new Typecho_Widget_Helper_Form_Element_Text('halo_url', NULL, NULL, _t('Halo博客地址'), _t('填写你的Halo博客地址 (不需要前缀)'));
+    $form->addInput($halo_url);
+
     $tw_name = new Typecho_Widget_Helper_Form_Element_Text('tw_name', NULL, NULL, _t('推特用户名'));
     $form->addInput($tw_name);
 
@@ -116,4 +119,31 @@ function get_avatar($name)
     curl_close($ch);
     $data = json_decode($json_string, true);
     return $data['avatar_url'];
+}
+
+function parse_halo_sitemap($url)
+{
+    $url_map = $url . '/sitemap.html';
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url_map);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $html = curl_exec($ch);
+    curl_close($ch);
+
+    preg_match_all('#<div class="T1 pull-left"><a href="'.$url.'/archives/.*?" title="(.*?)">#', $html, $title);
+    $title['1'] = array_reverse($title['1']);
+    $url_list = array();
+    foreach ($title['1'] as $item)
+    {
+        $url_list[] = $url.'/archives/'.$item;
+    }
+
+    $all = array();
+    $all = array_map(function ($i1, $i2) {
+        return '<a href="' . $i1 . '" target="_blank">' . $i2 . '</a>';
+    }, $url_list, $title['1']);
+    return $all;
+
 }

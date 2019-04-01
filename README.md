@@ -1,5 +1,4 @@
 # Magic-for-typecho
-
 这是一款魔幻个人主页主题,基于typecho,暂无提供文章预览页.用于链接另一个typecho博客.
 
 想知道这个主题的故事吗？ → [因为喜欢,所以追求](https://shizuri.net/archives/86/)
@@ -16,7 +15,7 @@ Demo:  <https://dic.shizuri.net>
 
 在主题设置里修改你的博客地址，填写Github用户名。
 
-
+- 支持Halo博客的文章解析
 
 #### 修改闪屏头像
 
