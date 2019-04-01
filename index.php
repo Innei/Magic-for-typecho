@@ -20,10 +20,18 @@ require_once 'functions.php';
         <header>
             <div id="header-content">
                 <div id="header-logo">
-                    <img class="logo" src="<?php $this->options->logo(); ?>" width=50%></image>
+                    <?php if ($this->options->logo != null): ?>
+                        <img class="logo" src="<?php $this->options->logo(); ?>" width=50%>
+                    <?php elseif ($this->options->g_name != null): ?>
+                        <img class="logo" src="<?php get_avatar($this->options->g_name); ?>" width=50%>
+                    <?php endif; ?>
                 </div>
                 <h1><?php $this->author(); ?> </h1>
-                <p><?php $this->options->self_intro(); ?></p>
+                <p><?php if ($this->options->self_intro == null):
+                        $this->options->description();
+                    else:
+                        $this->options->self_intro();
+                    endif; ?></p>
                 <div id="contact">
                     <a href="https://twitter.com/<?php echo $this->options->tw_name; ?>" id="twitter" target="_blank">
                         <svg viewBox="0 0 42 36" xmlns="http://www.w3.org/2000/svg">

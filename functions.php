@@ -11,10 +11,8 @@ function themeConfig($form)
     $db_uname = new Typecho_Widget_Helper_Form_Element_Text('db_uname', NULL, NULL, _t('数据库用户'));
     $form->addInput($db_uname);
 
-    $db_passwd = new Typecho_Widget_Helper_Form_Element_Text('db_passwd', NULL, NULL, _t('数据库密码'));
+    $db_passwd = new Typecho_Widget_Helper_Form_Element_Password('db_passwd', NULL, NULL, _t('数据库密码'));
     $form->addInput($db_passwd);
-
-
 
     $logo = new Typecho_Widget_Helper_Form_Element_Text('logo', NULL, NULL, _t('头像'), _t('填写网站图标地址，留空为关闭, 一般为http://www.yourblog.com/image.png,支持 https:// 或 //'));
     $form->addInput($logo->addRule('xssCheck', _t('请不要在图片链接中使用特殊字符')));
@@ -25,7 +23,7 @@ function themeConfig($form)
     $shortcut_ico = new Typecho_Widget_Helper_Form_Element_Text('shortcut_ico', NULL, NULL, _t('favicon设置'), _t('填写网站图标地址，留空为关闭, 一般为http://www.yourblog.com/image.png,支持 https:// 或 //'));
     $form->addInput($shortcut_ico->addRule('xssCheck', _t('请不要在图片链接中使用特殊字符')));
 
-    $blog_url = new Typecho_Widget_Helper_Form_Element_Text('blog_url', NULL, '#', _t('博客地址'), _t('填写你的博客地址 (不需要前缀)'));
+    $blog_url = new Typecho_Widget_Helper_Form_Element_Text('blog_url', NULL, NULL, _t('博客地址'), _t('填写你的博客地址 (不需要前缀)'));
     $form->addInput($blog_url);
 
     $tw_name = new Typecho_Widget_Helper_Form_Element_Text('tw_name', NULL, NULL, _t('推特用户名'));
@@ -72,9 +70,7 @@ $repo_name = array();
 $repo_url = array();
 function get_data($username)
 {
-
     $url = "https://api.github.com/users/" . $username . "/repos?page=1&per_page=6&sort=updated";
-
     $ch = curl_init();
 
 // 设置URL和相应的选项
@@ -106,4 +102,18 @@ function get_url()
 {
     global $repo_url;
     return $repo_url;
+}
+
+function get_avatar($name)
+{
+    $url = "https://api.github.com/users/" . $name;
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $json_string = curl_exec($ch);
+    curl_close($ch);
+    $data = json_decode($json_string, true);
+    return $data['avatar_url'];
 }
