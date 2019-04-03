@@ -56,9 +56,42 @@
 <div id="content" style="left: 40%">
     <h1><?php $this->title() ?></h1>
     <div id="main">
+        <div class="post-meta">
+            <p>Written by <a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author(); ?></a>
+                <?php if ($this->options->showCommentNum == 'on'):
+                    if ($this->commentsNum == 0) echo "with ♥ on "; else echo "with " . $this->commentsNum . " comment(s) on";
+                else: ?>
+                    with ♥ on
+                <?php endif; ?>
+                <time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date('F j, Y'); ?></time> in <?php $this->category(', ', true, 'none'); ?></p>
+        </div>
         <article class="posti">
             <?php $this->content(); ?>
         </article>
+        <div>
+            <ul class="post-copyright" style="margin: 0 0 0;">
+                <li>
+                    <strong>本文作者：</strong><?php $this->author(); ?>
+                </li>
+                <li>
+                    <strong>发布时间：</strong><?php $this->date('F j, Y'); ?>
+                </li>
+                <li>
+                    <strong>修改时间：</strong><?php echo date('F j, Y',$this->modified); ?>
+                </li>
+                <li>
+                    <strong>阅读次数：</strong> <?php get_post_view($this) ?>
+                </li>
+                <li>
+                    <strong>本文链接：</strong>
+                    <a href="<?php $this->permalink() ?>" title="<?php $this->title() ?>"><?php $this->permalink() ?></a>
+                </li>
+                <li>
+                    <strong>版权声明： </strong>
+                    本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 <?php $this->need('footer.php'); ?>

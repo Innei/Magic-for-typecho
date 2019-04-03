@@ -146,7 +146,6 @@ img {
 }
 
 code, p code {
-    padding: 3px 5px;
     margin: 0;
     font-size: 85%;
     background-color: rgba(255, 248, 248, 0.27);
@@ -155,7 +154,6 @@ code, p code {
 }
 
 pre code {
-    padding: 3px 5px;
     margin: 0;
     font-size: inherit;
     background: none;
@@ -168,10 +166,10 @@ pre {
     background-color: rgba(122, 124, 128, 0.31);
     border-radius: 2px;
     margin: 5px 0 5px;
-    padding: 0 5px;
+    padding: 0 10px;
     width: 100%;
     max-width: 100%;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
 }
 
@@ -195,4 +193,24 @@ pre {
     margin-right: 5px;
     color: #546e7a;
     font-weight: 400;
+}
+
+.post-meta {
+    box-shadow: 0 3px 15px 0 rgba(1, 1, 1, 0.3);
+    border-radius: 0rem 0rem .623rem 0rem;
+    margin-top: -3%;
+    font-family: 'Josefin Sans', -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft Yahei", "WenQuanYi Micro Hei", Arial, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: inherit;
+    transition: all .24s;
+}
+
+.post-copyright li {
+    list-style-type: none;
+}
+
+.post-copyright {
+    border-left: solid;
+    padding-left: 20px;
 }
