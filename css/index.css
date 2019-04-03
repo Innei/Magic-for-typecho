@@ -16,6 +16,7 @@ html {
     height: 100%
 }
 
+
 body {
     background: #101214;
     font-size: 18px;
@@ -143,9 +144,11 @@ a.more {
     font-size: 16px;
     text-decoration: none
 }
+
 a {
     text-decoration: none;
 }
+
 a.more svg {
     width: 6px;
     height: 10px;
@@ -234,12 +237,14 @@ a.more:hover .arrow {
 .logo {
     border-radius: 50%
 }
+
 #footer {
     width: 300px;
     margin-top: 20px;
 
 }
-#footer a{
+
+#footer a {
     color: #7a7c80;
     text-decoration: none;
 }

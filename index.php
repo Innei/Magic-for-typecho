@@ -69,8 +69,7 @@ require_once 'functions.php';
                 <ul>
                     <?php
                     if ($this->options->db_host == null || $this->options->db_uname == null):
-                        var_dump($this->options->db_host, $this->options->db_uname);
-                        $this->widget('Widget_Contents_Post_Recent', 'pageSize=6')->parse('<li><a href="' . $this->options->siteUrl . '{pathinfo}" target="_blank">{title}</a></li>');
+                        $this->widget('Widget_Contents_Post_Recent', 'pageSize=6')->parse('<li><a href="{permalink}" target="_blank">{title}</a></li>');
                     else:
                         replace_db($this->options->db_host, $this->options->db_uname, $this->options->db_passwd);
                         $this->widget('Widget_Contents_Post_Recent', 'pageSize=6')->parse('<li><a href="https://' . $this->options->blog_url . '{pathinfo}" target="_blank">{title}</a></li>');
