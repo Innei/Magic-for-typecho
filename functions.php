@@ -182,7 +182,7 @@ function parse_Flink($link_string)
     function parse_link($array)
     {
         $link = $name = array();
-        for ($i = 0; $i <= count($array) / 2; $i += 2) {
+        for ($i = 0; $i < count($array); $i += 2) {
             $link[] = $array[$i];
             $name[] = $array[$i + 1];
         }
