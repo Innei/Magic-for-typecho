@@ -177,27 +177,8 @@ function get_post_view($archive)
 
 function parse_Flink($link_string)
 {
-    file_put_contents('link.txt', $link_string);
-    function getTxtcontent($txtfile)
-    {
-        $file = @fopen($txtfile, 'r');
-        $content = array();
-        if (!$file) {
-            echo 'file open fail';
-        } else {
-            $i = 0;
-            while (!feof($file)) {
-                $content[$i] = mb_convert_encoding(fgets($file), "UTF-8", "ASCII,ANSI,UTF-8");
-                $i++;
-            }
-            fclose($file);
-            $content = array_filter($content); //数组去空
-        }
-
-        return $content;
-    }
-
-    $arr = getTxtcontent('link.txt');
+    $arr = explode("\n",$link_string);
+    $arr = array_filter($arr);
     function parse_link($array)
     {
         $link = $name = array();
