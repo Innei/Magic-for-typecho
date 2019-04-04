@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    background-color: #07090c;
+
+}
+
+html {
+    font-family: 'Josefin Sans', -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft Yahei", "WenQuanYi Micro Hei", Arial, Verdana, sans-serif;
+}
+
+body, footer {
+    font-size: 13pt;
+    font-weight: 400;
+    line-height: 2em;
+}
+
+::-webkit-scrollbar-track-piece {
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(122, 124, 128, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    height: 40px;
+    background-color: rgba(122, 124, 128, 0.22);
+    border-radius: 16px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(122, 124, 128, 0.14);
+}
+
+
+@media screen and (min-width: 1681px) {
+    body p, footer p {
+        font-size: 12pt;
+    }
+}
+
+@media screen and (max-width: 1680px) {
+    body, footer {
+        font-size: 11pt;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    body, footer {
+        font-size: 11pt;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    body, footer {
+        font-size: 12pt;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    body, footer {
+        font-size: 12pt;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body, footer {
+        font-size: 12pt;
+    }
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+#main {
+    width: 100%;
+    margin: 3% auto;
+}
+
+.posti {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.posti h1, h2, h3, h4, h5, h6 {
+    color: rgba(255, 248, 248, 0.52);
+    font-weight: 700;
+    line-height: 1em;
+    margin: 0.5em 0 1em 0;
+}
+
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 1.75em;
+    line-height: 1.5em;
+}
+
+h2 {
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+h3 {
+    font-size: 1.35em;
+    line-height: 1.5em;
+}
+
+h4 {
+    font-size: 1.1em;
+    line-height: 1.5em;
+}
+
+h5 {
+    font-size: 0.9em;
+    line-height: 1.5em;
+}
+
+h6 {
+    font-size: 0.7em;
+    line-height: 1.5em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 15px 0px rgba(0, 0, 0, 0.1);
+}
+
+code, p code {
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(255, 248, 248, 0.27);
+    border-radius: 3px;
+    font-family: Monaco, "Courier New", Consolas;
+}
+
+pre code {
+    margin: 0;
+    font-size: inherit;
+    background: none;
+    border: none;
+    color: rgba(255, 248, 248, 0.47);
+    max-width: inherit;
+}
+
+pre {
+    background-color: rgba(122, 124, 128, 0.31);
+    border-radius: 2px;
+    margin: 5px 0 5px;
+    padding: 0 10px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.posti h3:before {
+    content: "#";
+    margin-right: 5px;
+    color: #4caf50;
+    font-weight: 400;
+}
+
+.posti h2 {
+    border-left: #f29dce;
+    border-width: 0 0 0 3px;
+    border-style: solid;
+    padding-left: 5px;
+}
+
+
+.posti h4:before {
+    content: "&";
+    margin-right: 5px;
+    color: #546e7a;
+    font-weight: 400;
+}
+
+.post-meta {
+    box-shadow: 0 3px 15px 0 rgba(1, 1, 1, 0.3);
+    border-radius: 0rem 0rem .623rem 0rem;
+    margin-top: -3%;
+    font-family: 'Josefin Sans', -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft Yahei", "WenQuanYi Micro Hei", Arial, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: inherit;
+    transition: all .24s;
+}
+
+.post-copyright li {
+    list-style-type: none;
+}
+
+.post-copyright {
+    border-left: solid;
+    padding-left: 20px;
+}

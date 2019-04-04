@@ -132,18 +132,68 @@ function parse_halo_sitemap($url)
     $html = curl_exec($ch);
     curl_close($ch);
 
-    preg_match_all('#<div class="T1 pull-left"><a href="'.$url.'/archives/.*?" title="(.*?)">#', $html, $title);
+    preg_match_all('#<div class="T1 pull-left"><a href="' . $url . '/archives/.*?" title="(.*?)">#', $html, $title);
     $title['1'] = array_reverse($title['1']);
     $url_list = array();
-    foreach ($title['1'] as $item)
-    {
-        $url_list[] = $url.'/archives/'.$item;
+    foreach ($title['1'] as $item) {
+        $url_list[] = $url . '/archives/' . $item;
     }
 
-    $all = array();
+
     $all = array_map(function ($i1, $i2) {
         return '<a href="' . $i1 . '" target="_blank">' . $i2 . '</a>';
     }, $url_list, $title['1']);
     return $all;
 
+}
+
+function get_post_view($archive)
+{
+    $cid = $archive->cid;
+    $db = Typecho_Db::get();
+    $prefix = $db->getPrefix();
+    if (!array_key_exists('views', $db->fetchRow($db->select()->from('table.contents')))) {
+        $db->query('ALTER TABLE `' . $prefix . 'contents` ADD `views` INT(10) DEFAULT 0;');
+        echo 0;
+        return;
+    }
+    $row = $db->fetchRow($db->select('views')->from('table.contents')->where('cid = ?', $cid));
+    if ($archive->is('single')) {
+        $views = Typecho_Cookie::get('extend_contents_views');
+        if (empty($views)) {
+            $views = array();
+        } else {
+            $views = explode(',', $views);
+        }
+        if (!in_array($cid, $views)) {
+            $db->query($db->update('table.contents')->rows(array('views' => (int)$row['views'] + 1))->where('cid = ?', $cid));
+            array_push($views, $cid);
+            $views = implode(',', $views);
+            Typecho_Cookie::set('extend_contents_views', $views); //记录查看cookie
+        }
+    }
+    echo $row['views'];
+}
+
+function parse_Flink($link_string)
+{
+    $arr = explode("\n",$link_string);
+    $arr = array_filter($arr);
+    function parse_link($array)
+    {
+        $link = $name = array();
+        for ($i = 0; $i <= count($array) / 2; $i += 2) {
+            $link[] = $array[$i];
+            $name[] = $array[$i + 1];
+        }
+        $total = array_map(function ($i1, $i2) {
+            return '<li><a href="' . $i1 . '" target="_blank">' . $i2 . '</a></li>';
+        }, $name, $link);
+        return $total;
+    }
+
+    $s = parse_link($arr);
+    foreach ($s as $item) {
+        echo $item;
+    }
 }

@@ -144,7 +144,7 @@ require_once 'functions.php';
             <section id="music">
                 <h2>朋友</h2>
                 <ul>
-                    <?php $this->options->link(); ?>
+                    <?php parse_Flink($this->options->link) ?>
                 </ul>
             </section>
         </div>
