@@ -1,18 +1,18 @@
 # Magic-for-typecho
 
-[![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)<a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"></a>
+[![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE) <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"></a>
 
 这是一款魔幻个人主页主题,基于typecho,暂无提供文章预览页.用于链接另一个typecho博客.
 
 想知道这个主题的故事吗？ → [因为喜欢,所以追求](https://shizuri.net/archives/86/)
 
-这是一个移植主题。[来源](https://tuzi.moe)，所以只有首页的风格，文章页可能以后会写吧。友链未完善。
+这是一个移植主题。[来源](https://tuzi.moe)
 
 
 ![](https://i.loli.net/2019/03/29/5c9df7336e7e7.gif)
 
 
-Demo:  <https://dic.shizuri.net>
+Demo:  <https://www.shizuri.net>
 
 ### 食用方法
 
