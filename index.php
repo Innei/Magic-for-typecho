@@ -58,7 +58,7 @@ require_once 'functions.php';
                 <div id="footer">
                     <?php echo date('Y'); ?> <a
                             href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.
-                    <p> <?php _e('Using <a target="_blank" href="http://www.typecho.org">Typecho</a> & <a target="_blank" href="https://github.com/SorashitaInnei/Magic-for-typecho">Magic.</a>'); ?></p>
+                    <p> <?php _e('Using <a target="_blank" href="http://www.typecho.org">Typecho</a> & <a target="_blank" href="https://github.com/Innei/Magic-for-typecho">Magic.</a>'); ?></p>
 
                 </div>
             </div>
@@ -141,7 +141,7 @@ require_once 'functions.php';
                 </a> <?php endif;
                 ?>
             </section>
-            <section id="music">
+            <section id="friends">
                 <h2>朋友</h2>
                 <ul>
                     <?php parse_Flink($this->options->link) ?>

@@ -38,7 +38,7 @@ function themeConfig($form)
     $email = new Typecho_Widget_Helper_Form_Element_Text('email', NULL, NULL, _t('Email'));
     $form->addInput($email);
 
-    $link = new Typecho_Widget_Helper_Form_Element_Textarea('link', NULL, '暂未填写', _t('友链'), _t('格式: &lt;p&gt;&lt;a&gt;友链&lt;/a&gt;&lt;/p&gt;'));
+    $link = new Typecho_Widget_Helper_Form_Element_Textarea('link', NULL, '暂未填写', _t('友链'), _t('格式: 一行标题一行url <br>null<br>https://www.shizuri.net/'));
     $form->addInput($link);
 
 
@@ -179,8 +179,8 @@ function parse_Flink($link_string)
 {
     $arr = explode("\n",$link_string);
     $arr = array_filter($arr);
-    function parse_link($array)
-    {
+
+    $parse_link = function ($array) {
         $link = $name = array();
         for ($i = 0; $i < count($array); $i += 2) {
             $link[] = $array[$i];
@@ -190,9 +190,10 @@ function parse_Flink($link_string)
             return '<li><a href="' . $i1 . '" target="_blank">' . $i2 . '</a></li>';
         }, $name, $link);
         return $total;
-    }
+    };
 
-    $s = parse_link($arr);
+
+    $s = $parse_link($arr);
     foreach ($s as $item) {
         echo $item;
     }
