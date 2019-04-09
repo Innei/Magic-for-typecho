@@ -118,7 +118,7 @@ function get_avatar($name)
     $json_string = curl_exec($ch);
     curl_close($ch);
     $data = json_decode($json_string, true);
-    return $data['avatar_url'];
+    echo $data['avatar_url'];
 }
 
 function parse_halo_sitemap($url)

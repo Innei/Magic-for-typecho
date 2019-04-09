@@ -22,7 +22,7 @@ require_once 'functions.php';
                 <div id="header-logo">
                     <?php if ($this->options->logo != null): ?>
                         <img class="logo" src="<?php $this->options->logo(); ?>" width=50%>
-                    <?php elseif ($this->options->g_name != null): ?>
+                    <?php elseif ($this->options->g_name != null && $this->options->logo == null): ?>
                         <img class="logo" src="<?php get_avatar($this->options->g_name); ?>" width=50%>
                     <?php endif; ?>
                 </div>
