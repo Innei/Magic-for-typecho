@@ -133,7 +133,7 @@ function parse_halo_sitemap($url)
     curl_close($ch);
 
     preg_match_all('#<div class="T1 pull-left"><a href="' . $url . '/archives/.*?" title="(.*?)">#', $html, $title);
-    preg_match_all('/<div class="T1 pull-left"><a href="(' . $url . '/archives/.*?)" t/', $html, $url_list);
+    preg_match_all('#<div class="T1 pull-left"><a href="(' . $url . '/archives/.*?)" t#', $html, $url_list);
 
     $title['1'] = array_reverse($title['1']);
     $url_list['1'] = array_reverse($url_list['1']);
