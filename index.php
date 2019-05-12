@@ -112,6 +112,24 @@ require_once 'functions.php';
                     </a>
                 </section>
             <?php endif; ?>
+            <?php if ($this->options->RSS == null):
+            else: ?>
+                <section id="articles">
+                    <h2>博文</h2>
+                    <ul>
+                        <?php
+                        $link = parse_RSS('https://'.$this->options->RSS);
+                        ?>
+                    </ul>
+                    <a target="_blank" href="<?php echo $link; ?>" class="more">在博客查看更多
+                        <svg viewBox="0 0 10 16" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path class="arrow"
+                                  d="M1.01362083,12.9421826 L1,15.6012598 L9.21426767,8.3533766 L1.07301897,1.34639246 L1.05985086,3.91708947 L6.21426767,8.3533766 L1.01362083,12.9421826 Z"></path>
+                        </svg>
+                    </a>
+                </section>
+            <?php endif; ?>
             <section id="openSource">
                 <h2>开源</h2>
                 <ul>

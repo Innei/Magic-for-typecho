@@ -29,6 +29,9 @@ function themeConfig($form)
     $halo_url = new Typecho_Widget_Helper_Form_Element_Text('halo_url', NULL, NULL, _t('Halo博客地址'), _t('填写你的Halo博客地址 (不需要前缀)'));
     $form->addInput($halo_url);
 
+    $RSS = new Typecho_Widget_Helper_Form_Element_Text('RSS', NULL, NULL, _t('RSS地址'), _t('填写你的RSS地址 (不需要前缀)'));
+    $form->addInput($RSS);
+
     $tw_name = new Typecho_Widget_Helper_Form_Element_Text('tw_name', NULL, NULL, _t('推特用户名'));
     $form->addInput($tw_name);
 
@@ -40,6 +43,7 @@ function themeConfig($form)
 
     $link = new Typecho_Widget_Helper_Form_Element_Textarea('link', NULL, '暂未填写', _t('友链'), _t('格式: 一行标题一行url <br>null<br>https://www.shizuri.net/'));
     $form->addInput($link);
+
 
 
 }
@@ -175,7 +179,7 @@ function get_post_view($archive)
 
 function parse_Flink($link_string)
 {
-    $arr = explode("\n",$link_string);
+    $arr = explode("\n", $link_string);
     $arr = array_filter($arr);
 
     $parse_link = function ($array) {
@@ -195,4 +199,26 @@ function parse_Flink($link_string)
     foreach ($s as $item) {
         echo $item;
     }
+}
+
+function parse_RSS($url)
+{
+    $rss = simplexml_load_file($url);
+    $file = $rss->channel->item;
+    $link = $rss->channel->link;
+
+    if (isset($file)) {
+        for ($i = 0; $i < 6; $i++) {
+
+            if ($file[$i]) {
+                echo '<li><a href="' . $file[$i]->link . '" target="_blank">' . $file[$i]->title . "</a></li>";
+                echo "\n";
+            } else {
+                break;
+            }
+        }
+    } else {
+        echo "博客连接失败,请检查";
+    }
+    return $link;
 }
