@@ -29,7 +29,7 @@ function themeConfig($form)
     $halo_url = new Typecho_Widget_Helper_Form_Element_Text('halo_url', NULL, NULL, _t('Halo博客地址'), _t('填写你的Halo博客地址 (不需要前缀)'));
     $form->addInput($halo_url);
 
-    $RSS = new Typecho_Widget_Helper_Form_Element_Text('RSS', NULL, NULL, _t('RSS地址'), _t('填写你的RSS地址 (不需要前缀)'));
+    $RSS = new Typecho_Widget_Helper_Form_Element_Text('RSS', NULL, NULL, _t('RSS地址'), _t('填写你的RSS地址 (需要前缀)'));
     $form->addInput($RSS);
 
     $tw_name = new Typecho_Widget_Helper_Form_Element_Text('tw_name', NULL, NULL, _t('推特用户名'));
